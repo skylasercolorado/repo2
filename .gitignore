@@ -1,0 +1,10 @@
+objs
+lib
+*~
+*.*~
+*.o
+*.d
+*.a
+runner
+executable
+TAGS
