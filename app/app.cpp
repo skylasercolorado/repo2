@@ -9,10 +9,12 @@ int main()
   PrimeChecker primeChecker;
   int n = 1;
 
-  while(n != 0)
+  while(1)
     {
       cout << "\n\n\n\tCamila, enter a number: ";
       cin >> n;
+
+      if(n == 0) break;
 
       primeChecker.IsPrime(n);
     }
