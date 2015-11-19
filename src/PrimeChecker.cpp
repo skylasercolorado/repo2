@@ -31,12 +31,12 @@ bool PrimeChecker::IsPrime(int n)
   if(factors.size() == 0)
     {
       cout << "NONE";
-      cout << "\n\n\tNumber " << n << " IS PRIME!!! :)\n";
+      cout << "\n\n\tNumber " << n << " IS PRIME!!! :)\n\n";
       return true;
     }
   else
     {
-      cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n";
+      cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
       return false;
     }
 }
