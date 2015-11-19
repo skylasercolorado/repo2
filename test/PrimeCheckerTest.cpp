@@ -27,7 +27,30 @@ public:
 
 };
 
-TEST_F(PrimeCheckerTest, NoTest)
+TEST_F(PrimeCheckerTest, ExpectedPrimeTest)
 {
+  PrimeChecker primeChecker;
 
+  EXPECT_TRUE(primeChecker.IsPrime(5));
+}
+
+TEST_F(PrimeCheckerTest, ExpectedCompositeTest)
+{
+  PrimeChecker primeChecker;
+
+  EXPECT_FALSE(primeChecker.IsPrime(4));
+}
+
+TEST_F(PrimeCheckerTest, ExpectedCompositeNumber12Test)
+{
+  PrimeChecker primeChecker;
+
+  EXPECT_FALSE(primeChecker.IsPrime(12));
+}
+
+TEST_F(PrimeCheckerTest, ExpectedPrimeNumber7919Test)
+{
+  PrimeChecker primeChecker;
+
+  EXPECT_TRUE(primeChecker.IsPrime(7919));
 }

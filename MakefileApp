@@ -30,11 +30,12 @@ APP_DEPS       := $(APP_OBJECTS:.o=.d)
 APP_DEPS       += $(DEPS)
 
 #### Debugging rule --- print out variables
-#print:
-#	@echo "in PRINT"
-#	@echo $(SOURCES)
-#	@echo $(OBJECTS)
-#	@echo $(DEPS)
+print:
+	@echo "in PRINT"
+	@echo $(APP_SOURCES)
+	@echo $(SOURCES)
+	@echo $(OBJECTS)
+	@echo $(DEPS)
 
 #### Main rule --- build the test runner
 all: $(APP)
