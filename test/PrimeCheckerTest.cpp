@@ -47,3 +47,10 @@ TEST_F(PrimeCheckerTest, ExpectedCompositeNumber12Test)
 
   EXPECT_FALSE(primeChecker.IsPrime(12));
 }
+
+TEST_F(PrimeCheckerTest, ExpectedPrimeNumber7919Test)
+{
+  PrimeChecker primeChecker;
+
+  EXPECT_TRUE(primeChecker.IsPrime(7919));
+}
