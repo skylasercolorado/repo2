@@ -54,3 +54,10 @@ TEST_F(PrimeCheckerTest, ExpectedPrimeNumber7919Test)
 
   EXPECT_TRUE(primeChecker.IsPrime(7919));
 }
+
+TEST_F(PrimeCheckerTest, ExpectedPrimeNumberNegativeTest)
+{
+  PrimeChecker primeChecker(true);
+
+  EXPECT_THROW(primeChecker.IsPrime(-1), invalid_argument);
+}
