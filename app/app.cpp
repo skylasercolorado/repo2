@@ -36,14 +36,16 @@ int main()
   //     primeChecker.IsPrime(n);
   //   }
 
-  try
+  while(1)
     {
-      doWork();
-    }
-  catch(const invalid_argument &e)
-    {
-      cout << "\n\t\t\t" << "Cannot process negative numbers. Try again." << "\n\n";
-      doWork();
+      try
+	{
+	  doWork();
+	}
+      catch(const invalid_argument &e)
+	{
+	  cout << "\n\t\t\t" << "Cannot process negative numbers. Try again." << "\n\n";
+	}
     }
   
   return 0;
