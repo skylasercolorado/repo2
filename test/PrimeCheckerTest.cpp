@@ -29,5 +29,7 @@ public:
 
 TEST_F(PrimeCheckerTest, NoTest)
 {
+  PrimeChecker primeChecker;
 
+  EXPECT_EQ(true, primeChecker.IsPrime(5));
 }
