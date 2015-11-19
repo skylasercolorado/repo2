@@ -20,7 +20,8 @@ bool PrimeChecker::IsPrime(int n)
 	}
       else
 	if(_verbose)
-	  cout << "\n\t" << n << " / " << i << " = " << n/i << ". Residue: " << n%i << " ---> Number " << i << " IS NOT A FACTOR !!! :(";
+	  //cout << "\n\t" << n << " / " << i << " = " << n/i << ". Residue: " << n%i << " ---> Number " << i << " IS NOT A FACTOR !!! :(";
+	  calculationMessage(n, i, " IS NOT A FACTOR !!! :)");
     }
 
   cout << "\n\tFactors (other than 1 and " << n << "): ";
