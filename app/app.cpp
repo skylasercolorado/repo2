@@ -1,10 +1,11 @@
 #include "PrimeChecker.hpp"
 #include <iostream>
+#include <stdexcept>
 
 using namespace Camax;
 using namespace std;
 
-int main()
+static void doWork()
 {
   PrimeChecker primeChecker;
   int n = 1;
@@ -13,11 +14,38 @@ int main()
     {
       cout << "\n\n\n\tCamila, enter a number: ";
       cin >> n;
-
+      
       if(n == 0) break;
-
+      
       primeChecker.IsPrime(n);
+    }
+}
+
+int main()
+{
+  // PrimeChecker primeChecker;
+  // int n = 1;
+
+  // while(1)
+  //   {
+  //     cout << "\n\n\n\tCamila, enter a number: ";
+  //     cin >> n;
+
+  //     if(n == 0) break;
+
+  //     primeChecker.IsPrime(n);
+  //   }
+
+  try
+    {
+      doWork();
+    }
+  catch(const invalid_argument &e)
+    {
+      cout << "\n\t\t\t" << "Cannot process negative numbers. Try again." << "\n\n";
+      doWork();
     }
   
   return 0;
 }
+
