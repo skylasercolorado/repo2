@@ -25,7 +25,7 @@ endif
 
 AR          = ar
 CFLAGS     	= -Wall -g -O0 -pedantic -ansi -std=c++0x -MD -DTESTING
-LFLAGS_TEST 	= -lstdc++ -L$(LIBDIR) -lgtest -lgtest_main -lpthread -llightscheduler
+LFLAGS_TEST 	= -lstdc++ -L$(LIBDIR) -lgtest -lgtest_main -lpthread -lsrclibrary
 ####################################################
 
 SOURCES    	:= $(shell find $(SRCDIR) -type f -name "*.$(SRCEXT)")
@@ -62,7 +62,7 @@ $(TESTRUNNER): $(OBJECTS) $(TEST_OBJECTS) $(MOCK_OBJECTS)
 
 $(SRCBUILDDIR)/%.o: $(SRCDIR)/%.cpp
 	$(CC) -c $(CFLAGS) $(INCS) $< -o $@
-	$(AR) -cvq $(LIBDIR)/liblightscheduler.a $@  
+	$(AR) -cvq $(LIBDIR)/libsrclibrary.a $@  
 
 $(TESTBUILDDIR)/%.o: $(TESTDIR)/%.cpp
 	$(CC) -c $(CFLAGS) $(INCS) $< -o $@
