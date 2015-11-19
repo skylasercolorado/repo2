@@ -12,9 +12,10 @@ bool PrimeChecker::IsPrime(int n)
   if(n < 1)
     throw invalid_argument("Error. Negative numbers cannot be processed");
 
+  // Find factors and optionally show the calculation details to the user
   for(int i = 2; i < n; i++)
     {
-      if((n % i) == 0) // For exact division there is no reaminder. Then, this is a factor.
+      if((n % i) == 0) // For exact division there is no remainder. Then, this is a factor.
 	{
 	  factors.push_back(i);
 
@@ -26,6 +27,7 @@ bool PrimeChecker::IsPrime(int n)
 	  calculationMessage(n, i, " IS NOT A FACTOR !!! :)");
     }
 
+  // Optionally show the list of found factors to the user
   if(_verbose)
     {
       cout << "\n\tFactors (other than 1 and " << n << "): ";
@@ -37,6 +39,7 @@ bool PrimeChecker::IsPrime(int n)
       if(factors.size() == 0) cout << "NONE";
     }
 
+  // Return whether the number is prime or not and optionally display the result to the user
   if(factors.size() == 0)
     {
       if(_verbose) cout << "\n\n\tNumber " << n << " IS PRIME!!! :)\n\n";
