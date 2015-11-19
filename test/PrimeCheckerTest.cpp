@@ -31,12 +31,19 @@ TEST_F(PrimeCheckerTest, ExpectedPrimeTest)
 {
   PrimeChecker primeChecker;
 
-  EXPECT_EQ(true, primeChecker.IsPrime(5));
+  EXPECT_TRUE(primeChecker.IsPrime(5));
 }
 
 TEST_F(PrimeCheckerTest, ExpectedCompositeTest)
 {
   PrimeChecker primeChecker;
 
-  EXPECT_EQ(false, primeChecker.IsPrime(4));
+  EXPECT_FALSE(primeChecker.IsPrime(4));
+}
+
+TEST_F(PrimeCheckerTest, ExpectedCompositeNumber12Test)
+{
+  PrimeChecker primeChecker;
+
+  EXPECT_FALSE(primeChecker.IsPrime(12));
 }
