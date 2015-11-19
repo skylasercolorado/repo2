@@ -15,7 +15,8 @@ bool PrimeChecker::IsPrime(int n)
 	  factors.push_back(i);
 
 	  if(_verbose)
-	      cout << "\n\t" << n << " / " << i << " = " << n/i << ". Residue: " << n%i << " ---> Number " << i << " IS A FACTOR !!! :)";
+	    //cout << "\n\t" << n << " / " << i << " = " << n/i << ". Residue: " << n%i << " ---> Number " << i << " IS A FACTOR !!! :)";
+	    calculationMessage(n, i, " IS A FACTOR !!! :)");
 	}
       else
 	if(_verbose)
@@ -41,6 +42,10 @@ bool PrimeChecker::IsPrime(int n)
     }
 }
 
-      
+void PrimeChecker::calculationMessage(int n, int i, string message)
+{
+  cout << "\n\t" << n << " / " << i << " = " << n/i << ". Residue: " << n%i << " ---> Number " << i << message;
+}
+
     
 	

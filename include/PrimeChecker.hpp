@@ -2,6 +2,7 @@
 #define CAMAX_PRIMECHECKER_HPP
 
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -15,6 +16,7 @@ namespace Camax
     
   private:
     bool _verbose;
+    void calculationMessage(int n, int i, string message);
   };
 }
 
