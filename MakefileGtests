@@ -20,12 +20,12 @@ DISTRO := $(shell uname -r)
 ifneq (,$(findstring fc14, $(DISTRO))) # If fedora core. Fedora Core 14 does not have native C++11 support.
    CC         	= /opt/gcc471/bin/g++471
 else
-   CC           = g++
+   CC           = gcc
 endif
 
 AR          = ar
 CFLAGS     	= -Wall -g -O0 -pedantic -ansi -std=c++0x -MD -DTESTING
-LFLAGS_TEST 	= -L$(LIBDIR) -lgtest -lgtest_main -lpthread -llightscheduler
+LFLAGS_TEST 	= -lstdc++ -L$(LIBDIR) -lgtest -lgtest_main -lpthread -llightscheduler
 ####################################################
 
 SOURCES    	:= $(shell find $(SRCDIR) -type f -name "*.$(SRCEXT)")
