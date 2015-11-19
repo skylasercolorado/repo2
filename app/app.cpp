@@ -23,8 +23,8 @@ static void doWork()
 
 int main()
 {
-  // PrimeChecker primeChecker;
-  // int n = 1;
+  PrimeChecker primeChecker;
+  int n = 1;
 
   // while(1)
   //   {
@@ -40,7 +40,16 @@ int main()
     {
       try
 	{
-	  doWork();
+	  //doWork();
+	  while(1)
+	    {
+	      cout << "\n\n\n\tCamila, enter a number: ";
+	      cin >> n;
+	      
+	      if(n == 0) break;
+	      
+	      primeChecker.IsPrime(n);
+	    }
 	}
       catch(const invalid_argument &e)
 	{
