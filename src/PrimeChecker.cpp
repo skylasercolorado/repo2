@@ -10,33 +10,34 @@ bool PrimeChecker::IsPrime(int n)
 
   for(int i = 2; i < n; i++)
     {
-      if((n % i) != 0)
+      if((n % i) == 0)
 	{
 	  factors.push_back(i);
 
 	  if(_verbose)
-	      cout << "\n\t" << n << " / " << i << " = " << n/i << ". Residue: " << n%i << ". " << i << " IS A FACTOR !!! :)";
+	      cout << "\n\t" << n << " / " << i << " = " << n/i << ". Residue: " << n%i << " ---> Number " << i << " IS A FACTOR !!! :)";
 	}
       else
 	if(_verbose)
-	  cout << "\n\t" << n << " / " << i << " = " << n/i << ". Residue: " << n%i << ". " << i << " IS NOT A FACTOR !!! :(";
+	  cout << "\n\t" << n << " / " << i << " = " << n/i << ". Residue: " << n%i << " ---> Number " << i << " IS NOT A FACTOR !!! :(";
     }
 
-  cout << "\n\t Factors (other than 1 and " << n << ": ";
+  cout << "\n\tFactors (other than 1 and " << n << "): ";
   for(vector<int>::iterator it = factors.begin(); it != factors.end(); it++)
     {
       cout << *it << ", ";
     }
 
-  if(factors.size() > 0)
+  if(factors.size() == 0)
     {
-      cout << "\n\t" << n << " IS PRIME!!! :)";
+      cout << "NONE";
+      cout << "\n\n\tNumber " << n << " IS PRIME!!! :)\n";
       return true;
     }
   else
     {
-      cout << "\n\t" << n << " IS NOT PRIME!!! :(";
-      return true;
+      cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n";
+      return false;
     }
 }
 

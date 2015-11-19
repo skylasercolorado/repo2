@@ -27,9 +27,16 @@ public:
 
 };
 
-TEST_F(PrimeCheckerTest, NoTest)
+TEST_F(PrimeCheckerTest, ExpectedPrimeTest)
 {
   PrimeChecker primeChecker;
 
   EXPECT_EQ(true, primeChecker.IsPrime(5));
+}
+
+TEST_F(PrimeCheckerTest, ExpectedCompositeTest)
+{
+  PrimeChecker primeChecker;
+
+  EXPECT_EQ(false, primeChecker.IsPrime(4));
 }
