@@ -1,5 +1,6 @@
 #include "PrimeChecker.hpp"
 #include <iostream>
+#include <stdexcept>
 
 using namespace Camax;
 using namespace std;
@@ -7,6 +8,9 @@ using namespace std;
 bool PrimeChecker::IsPrime(int n)
 {
   vector<int> factors;
+
+  if(n < 1)
+    throw invalid_argument("Error. Negative numbers cannot be processed");
 
   for(int i = 2; i < n; i++)
     {
