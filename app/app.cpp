@@ -17,7 +17,11 @@ static void doWork()
 	  cout << "\n\n\n\tCamila, enter a number: ";
 	  cin >> n;
 	  
-	  if(n == 0) break;
+	  if(n == 0)
+	    {
+	      cout << "\n\n\t\tBye Cami !!!  :( !!!\n\n\n";
+	      break;
+	    }
 	  
 	  primeChecker.IsPrime(n);
 	}
