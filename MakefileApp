@@ -15,9 +15,15 @@ INCS       	= -I$(INCDIR)
 ####################################################
 #          Compiler Settings
 ####################################################
-CC         	= /opt/gcc471/bin/g++471
+DISTRO := $(shell uname -r)
+ifneq (,$(findstring fc14, $(DISTRO))) # If fedora core. Fedora Core 14 does not have native C++11 support.
+   CC         	= /opt/gcc471/bin/g++471
+else
+   CC           = gcc
+endif
+
 CFLAGS     	= -Wall -g -O0 -pedantic -ansi -std=c++0x -MD
-LFLAGS_TEST 	= -lstdc++ -ldl -lncurses++ -lform -lmenu -lpanel
+LFLAGS_TEST 	= -lstdc++ -ldl 
 ####################################################
 
 SOURCES    	:= $(shell find $(SRCDIR) -type f -name "*.$(SRCEXT)")
