@@ -10,9 +10,9 @@ static void doWork()
   PrimeChecker primeChecker;
   int n = 1;
 
-  try
+  while(1)
     {
-      while(1)
+      try
 	{
 	  cout << "\n\n\n\tCamila, enter a number: ";
 	  cin >> n;
@@ -21,10 +21,10 @@ static void doWork()
 	  
 	  primeChecker.IsPrime(n);
 	}
-    }
-  catch(const invalid_argument& e)
-    {
-      cout << "\n\tException: " << e.what() << "\n\n";
+      catch(const invalid_argument& e)
+	{
+	  cout << "\n\tException: " << e.what() << "\n\n";
+	}
     }
 }
 
