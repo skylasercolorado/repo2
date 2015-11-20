@@ -10,14 +10,21 @@ static void doWork()
   PrimeChecker primeChecker;
   int n = 1;
 
-  while(1)
+  try
     {
-      cout << "\n\n\n\tCamila, enter a number: ";
-      cin >> n;
-      
-      if(n == 0) break;
-      
-      primeChecker.IsPrime(n);
+      while(1)
+	{
+	  cout << "\n\n\n\tCamila, enter a number: ";
+	  cin >> n;
+	  
+	  if(n == 0) break;
+	  
+	  primeChecker.IsPrime(n);
+	}
+    }
+  catch(const invalid_argument& e)
+    {
+      cout << "\n\tException: " << e.what() << "\n\n";
     }
 }
 
@@ -26,35 +33,17 @@ int main()
   PrimeChecker primeChecker;
   int n = 1;
 
-  // while(1)
-  //   {
-  //     cout << "\n\n\n\tCamila, enter a number: ";
-  //     cin >> n;
-
-  //     if(n == 0) break;
-
-  //     primeChecker.IsPrime(n);
-  //   }
-
-  while(1)
+  try
     {
-      try
-	{
-	  //doWork();
-	  while(1)
-	    {
-	      cout << "\n\n\n\tCamila, enter a number: ";
-	      cin >> n;
-	      
-	      if(n == 0) break;
-	      
-	      primeChecker.IsPrime(n);
-	    }
-	}
-      catch(const invalid_argument &e)
-	{
-	  cout << "\n\t\t\t" << "Cannot process negative numbers. Try again." << "\n\n";
-	}
+      doWork();
+    }
+  catch(const exception &e)
+    {
+      cout << "\n\n\tException: " << e.what() << "\n\n";
+    }
+  catch(...)
+    {
+      cout << "\n\n\tUnknown expection occurred.\n\n";
     }
   
   return 0;

@@ -10,7 +10,7 @@ bool PrimeChecker::IsPrime(int n)
   vector<int> factors;
 
   if(n < 1)
-    throw invalid_argument("Error. Negative numbers cannot be processed");
+    throw invalid_argument("Negative numbers cannot be processed");
 
   // Find factors and optionally show the calculation details to the user
   for(int i = 2; i < n; i++)
