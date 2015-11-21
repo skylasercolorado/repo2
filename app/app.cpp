@@ -7,7 +7,7 @@ using namespace std;
 
 static void doWork()
 {
-  PrimeChecker primeChecker;
+  PrimeChecker primeChecker(VerboseOn, DebugMode);
   int n = 1;
 
   while(1)
