@@ -50,7 +50,14 @@ TEST_F(PrimeCheckerTest, ExpectedCompositeNumber12Test)
 
 TEST_F(PrimeCheckerTest, ExpectedPrimeNumber7919Test)
 {
-  PrimeChecker primeChecker;
+  PrimeChecker primeChecker(VerboseOff);
 
   EXPECT_TRUE(primeChecker.IsPrime(7919));
+}
+
+TEST_F(PrimeCheckerTest, ExpectedPrimeNumberNegativeTest)
+{
+  PrimeChecker primeChecker(VerboseOn);
+
+  EXPECT_THROW(primeChecker.IsPrime(-1), invalid_argument);
 }
