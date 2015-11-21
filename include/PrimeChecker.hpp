@@ -8,14 +8,27 @@ using namespace std;
 
 namespace Camax
 {
+  enum VerboseMode
+    {
+      VerboseOn,
+      VerboseOff
+    };
+
+  enum RunMode
+    {
+      DebugMode,
+      ProductionMode
+    };
+  
   class PrimeChecker
   {
   public:
-    PrimeChecker(bool verbose = true) : _verbose(verbose) {}
+    PrimeChecker(VerboseMode verboseMode = VerboseOn, RunMode runMode = ProductionMode) : _verboseMode(verboseMode), _runMode(runMode) {}
     bool IsPrime(int n);
     
   private:
-    bool _verbose;
+    VerboseMode _verboseMode;
+    RunMode _runMode;
     void calculationMessage(int n, int i, string message);
   };
 }

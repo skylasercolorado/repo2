@@ -19,16 +19,16 @@ bool PrimeChecker::IsPrime(int n)
 	{
 	  factors.push_back(i);
 
-	  if(_verbose)
+	  if(_verboseMode == VerboseOn)
 	    calculationMessage(n, i, " IS A FACTOR !!! :)");
 	}
       else
-	if(_verbose)
+	if(_verboseMode == VerboseOn)
 	  calculationMessage(n, i, " IS NOT A FACTOR !!! :)");
     }
 
   // Optionally show the list of found factors to the user
-  if(_verbose)
+  if(_verboseMode == VerboseOn)
     {
       cout << "\n\tFactors (other than 1 and " << n << "): ";
       for(vector<int>::iterator it = factors.begin(); it != factors.end(); it++)
@@ -42,12 +42,12 @@ bool PrimeChecker::IsPrime(int n)
   // Return whether the number is prime or not and optionally display the result to the user
   if(factors.size() == 0)
     {
-      if(_verbose) cout << "\n\n\tNumber " << n << " IS PRIME!!! :)\n\n";
+      if(_verboseMode == VerboseOn) cout << "\n\n\tNumber " << n << " IS PRIME!!! :)\n\n";
       return true;
     }
   else 
     {
-      if(_verbose) cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
+      if(_verboseMode == VerboseOn) cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
       return false;
     }
 }

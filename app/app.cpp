@@ -34,9 +34,6 @@ static void doWork()
 
 int main()
 {
-  PrimeChecker primeChecker;
-  int n = 1;
-
   try
     {
       doWork();
