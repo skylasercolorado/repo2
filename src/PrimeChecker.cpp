@@ -54,12 +54,12 @@ bool PrimeChecker::IsPrime(int n)
   // Return whether the number is prime or not and optionally display the result to the user
   if(factors.size() == 0)
     {
-      if(_verboseMode == VerboseOn) cout << "\n\n\tNumber " << n << " IS PRIME!!! :)\n\n";
+      cout << "\n\n\tNumber " << n << " IS PRIME!!! :)\n\n";
       return true;
     }
   else 
     {
-      if(_verboseMode == VerboseOn) cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
+      cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
       return false;
     }
 }
