@@ -8,13 +8,13 @@ using namespace std;
 
 namespace Camax
 {
-  enum VerboseMode
+  enum VerboseMode : int
     {
       VerboseOn,
       VerboseOff
     };
 
-  enum RunMode
+  enum RunMode : int
     {
       DebugMode,
       ProductionMode
