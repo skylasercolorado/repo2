@@ -9,8 +9,20 @@ bool PrimeChecker::IsPrime(int n)
 {
   vector<int> factors;
 
-  if(n < 1)
-    throw invalid_argument("Negative numbers cannot be processed");
+  if(_runMode == ProductionMode)
+    {
+      if(n < 1)
+	throw invalid_argument("Negative numbers cannot be processed");
+    }
+  else
+    {
+      if(n < 1 && n >= -99)
+	throw invalid_argument("Negative numbers cannot be processed");
+      else if(n <= -100 && n >= -199)
+	throw runtime_error("run time error exception");
+      else if(n <= -200)
+	throw "5";
+    }
 
   // Find factors and optionally show the calculation details to the user
   for(int i = 2; i < n; i++)
