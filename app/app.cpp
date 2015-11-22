@@ -6,17 +6,25 @@
 using namespace Camax;
 using namespace std;
 
-static VerboseMode _verboseMode = VerboseOn;
-static RunMode _runMode = ProductionMode;
-
-static int parseCommandLineOptions(int argc, char **argv)
+struct PrimeCheckerParams
 {
-    static struct option longOptions[] =
+  VerboseMode verboseMode;
+  RunMode runMode;
+};
+
+static PrimeCheckerParams& parseCommandLineOptions(int argc, char **argv)
+{
+  PrimeCheckerParams& params = *(new PrimeCheckerParams);
+
+  params.verboseMode = VerboseOn;
+  params.runMode = ProductionMode;
+
+  static struct option longOptions[] =
     {
-      {"brief", no_argument, (int*) &_verboseMode, VerboseOff},
-      {"verbose", no_argument, (int*) &_verboseMode, VerboseOn},
-      {"debug", no_argument, (int*) &_runMode, DebugMode},
-      {"production", no_argument, (int*) &_runMode, ProductionMode},
+      {"brief", no_argument, (int*) &params.verboseMode, VerboseOff},
+      {"verbose", no_argument, (int*) &params.verboseMode, VerboseOn},
+      {"debug", no_argument, (int*) &params.runMode, DebugMode},
+      {"production", no_argument, (int*) &params.runMode, ProductionMode},
       {"help", no_argument, 0, 'h'},
       {0, 0, 0, 0}
     };
@@ -38,24 +46,28 @@ static int parseCommandLineOptions(int argc, char **argv)
 	  cout << "--debug \t   \t Run in debug mode.\n";
 	  cout << "--production \t   \t Run in production mode.\n";
 	  cout << "--help \t -h \t Display this help message.\n\n";
-	  return 0;
+	  exit(0);
 
 	case '?':
 	  // Unrecognized option
 	  cout << "\n\tUnrecognized option. Try --help\n";
-	  return 0;
+	  exit(0);
       
 	default:
 	  // No special action to do on the other valid options
 	  break;
 	}
     }
+
+  return params;
 }
 
-static void doWork()
+static void doWork(int argc, char **argv)
 {
-  PrimeChecker primeChecker(_verboseMode, _runMode);
-  int n = 1;
+  PrimeCheckerParams& params = parseCommandLineOptions(argc, argv);
+  
+  PrimeChecker primeChecker(params.verboseMode, params.runMode);
+  int n;
 
   while(1)
     {
@@ -81,11 +93,9 @@ static void doWork()
 
 int main(int argc, char **argv)
 {
-  parseCommandLineOptions(argc, argv);
-
   try
     {
-      doWork();
+      doWork(argc, argv);
     }
   catch(const exception &e)
     {
