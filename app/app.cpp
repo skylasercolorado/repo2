@@ -89,6 +89,8 @@ static void doWork(int argc, char **argv)
 	  cout << "\n\tException: " << e.what() << "\n\n";
 	}
     }
+
+  delete &params;
 }
 
 int main(int argc, char **argv)
