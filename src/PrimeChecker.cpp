@@ -7,7 +7,7 @@ using namespace std;
 
 bool PrimeChecker::IsPrime(int n)
 {
-  vector<int> factors;
+  //  vector<int> factors;
 
   if(_runMode == ProductionMode)
     {
@@ -29,40 +29,108 @@ bool PrimeChecker::IsPrime(int n)
     {
       if((n % i) == 0) // For exact division there is no remainder. Then, this is a factor.
 	{
-	  factors.push_back(i);
+	  //	  factors.push_back(i);
 
-	  if(_verboseMode == VerboseOn)
-	    calculationMessage(n, i, " IS A FACTOR !!! :)");
+	  // if(_verboseMode == VerboseOn)
+	  //  calculationMessage(n, i, " IS A FACTOR !!! :)");
+
+	  //cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
+	  return false;
+
 	}
-      else
-	if(_verboseMode == VerboseOn)
-	  calculationMessage(n, i, " IS NOT A FACTOR !!! :)");
+      // else
+      // 	if(_verboseMode == VerboseOn)
+      // 	  calculationMessage(n, i, " IS NOT A FACTOR !!! :)");
     }
+
+  //cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
+  return true;
+
 
   // Optionally show the list of found factors to the user
-  if(_verboseMode == VerboseOn)
-    {
-      cout << "\n\tFactors (other than 1 and " << n << "): ";
-      for(vector<int>::iterator it = factors.begin(); it != factors.end(); it++)
-	{
-	  cout << *it << ", ";
-	}
+  // if(_verboseMode == VerboseOn)
+  //   {
+  //     cout << "\n\tFactors (other than 1 and " << n << "): ";
+  //     for(vector<int>::iterator it = factors.begin(); it != factors.end(); it++)
+  // 	{
+  // 	  cout << *it << ", ";
+  // 	}
 
-      if(factors.size() == 0) cout << "NONE";
-    }
+  //     if(factors.size() == 0) cout << "NONE";
+  //   }
 
   // Return whether the number is prime or not and optionally display the result to the user
-  if(factors.size() == 0)
-    {
-      cout << "\n\n\tNumber " << n << " IS PRIME!!! :)\n\n";
-      return true;
-    }
-  else 
-    {
-      cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
-      return false;
-    }
+  // if(factors.size() == 0)
+  //   {
+  //     cout << "\n\n\tNumber " << n << " IS PRIME!!! :)\n\n";
+  //     return true;
+  //   }
+  // else 
+  //   {
+  //     cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
+  //     return false;
+  //   }
 }
+
+// bool PrimeChecker::Factors(int n)
+// {
+//   vector<int> factors;
+
+//   if(_runMode == ProductionMode)
+//     {
+//       if(n < 1)
+// 	throw invalid_argument("Negative numbers cannot be processed");
+//     }
+//   else
+//     {
+//       if(n < 1 && n >= -99)
+// 	throw invalid_argument("Negative numbers cannot be processed");
+//       else if(n <= -100 && n >= -199)
+// 	throw runtime_error("run time error exception");
+//       else if(n <= -200)
+// 	throw "5";
+//     }
+
+//   // Find factors and optionally show the calculation details to the user
+//   for(int i = 2; i < n; i++)
+//     {
+//       if((n % i) == 0) // For exact division there is no remainder. Then, this is a factor.
+// 	{
+// 	  factors.push_back(i);
+
+// 	  if(_verboseMode == VerboseOn)
+// 	    calculationMessage(n, i, " IS A FACTOR !!! :)");
+// 	}
+//       else
+// 	if(_verboseMode == VerboseOn)
+// 	  calculationMessage(n, i, " IS NOT A FACTOR !!! :)");
+//     }
+
+//   // Optionally show the list of found factors to the user
+//   if(_verboseMode == VerboseOn)
+//     {
+//       cout << "\n\tFactors (other than 1 and " << n << "): ";
+//       for(vector<int>::iterator it = factors.begin(); it != factors.end(); it++)
+// 	{
+// 	  cout << *it << ", ";
+// 	}
+
+//       if(factors.size() == 0) cout << "NONE";
+//     }
+
+//   // Return whether the number is prime or not and optionally display the result to the user
+//   if(factors.size() == 0)
+//     {
+//       cout << "\n\n\tNumber " << n << " IS PRIME!!! :)\n\n";
+//       return true;
+//     }
+//   else 
+//     {
+//       cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
+//       return false;
+//     }
+// }
+
 
 void PrimeChecker::calculationMessage(int n, int i, string message)
 {
