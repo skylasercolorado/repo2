@@ -7,8 +7,6 @@ using namespace std;
 
 bool PrimeChecker::IsPrime(int n)
 {
-  //  vector<int> factors;
-
   if(_runMode == ProductionMode)
     {
       if(n < 1)
@@ -24,52 +22,17 @@ bool PrimeChecker::IsPrime(int n)
 	throw "5";
     }
 
-  // Find factors and optionally show the calculation details to the user
   for(int i = 2; i < n; i++)
     {
       if((n % i) == 0) // For exact division there is no remainder. Then, this is a factor.
 	{
-	  //	  factors.push_back(i);
-
-	  // if(_verboseMode == VerboseOn)
-	  //  calculationMessage(n, i, " IS A FACTOR !!! :)");
-
-	  //cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
+	  //TODO: Move this message to the app level ---> cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
 	  return false;
-
 	}
-      // else
-      // 	if(_verboseMode == VerboseOn)
-      // 	  calculationMessage(n, i, " IS NOT A FACTOR !!! :)");
     }
 
-  //cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
+  //TODO: Move this message to the app level ---> cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
   return true;
-
-
-  // Optionally show the list of found factors to the user
-  // if(_verboseMode == VerboseOn)
-  //   {
-  //     cout << "\n\tFactors (other than 1 and " << n << "): ";
-  //     for(vector<int>::iterator it = factors.begin(); it != factors.end(); it++)
-  // 	{
-  // 	  cout << *it << ", ";
-  // 	}
-
-  //     if(factors.size() == 0) cout << "NONE";
-  //   }
-
-  // Return whether the number is prime or not and optionally display the result to the user
-  // if(factors.size() == 0)
-  //   {
-  //     cout << "\n\n\tNumber " << n << " IS PRIME!!! :)\n\n";
-  //     return true;
-  //   }
-  // else 
-  //   {
-  //     cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
-  //     return false;
-  //   }
 }
 
 // bool PrimeChecker::Factors(int n)
