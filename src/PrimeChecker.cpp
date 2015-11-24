@@ -1,9 +1,12 @@
 #include "PrimeChecker.hpp"
 #include <iostream>
 #include <stdexcept>
+#include <chrono>
+#include <ratio>
 
 using namespace Camax;
 using namespace std;
+using namespace std::chrono;
 
 bool PrimeChecker::IsPrime(int n)
 {
@@ -22,16 +25,30 @@ bool PrimeChecker::IsPrime(int n)
 	throw "5";
     }
 
+  //  time_point end;
+  //  miliseconds diff;
+  system_clock::time_point start = system_clock::now();
+  
   for(int i = 2; i < n; i++)
     {
       if((n % i) == 0) // For exact division there is no remainder. Then, this is a factor.
 	{
 	  //TODO: Move this message to the app level ---> cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
+	  system_clock::time_point end = system_clock::now();
+	  microseconds diff = end - start;
+	  if(_verboseMode == VerboseOn)
+	    cout << "\n\tDuration: " << diff.count() << " us.";
+	  
 	  return false;
 	}
     }
 
   //TODO: Move this message to the app level ---> cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
+  system_clock::time_point end = system_clock::now();
+  microseconds diff = end - start;
+  if(_verboseMode == VerboseOn)
+    cout << "\n\tDuration: " << diff.count() << " us.";
+	  
   return true;
 }
 
