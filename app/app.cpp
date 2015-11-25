@@ -82,7 +82,10 @@ static void doWork(int argc, char **argv)
 	      break;
 	    }
 	  
-	  primeChecker.IsPrime(n);
+	  if(primeChecker.IsPrime(n))
+	    cout << "\n\n\tNumber " << n << " IS PRIME!!! :)\n\n";
+	  else
+	    cout << "\n\n\tNumber " << n << " IS COMPOSITE!!! :(\n\n";
 	}
       catch(const invalid_argument& e)
 	{
