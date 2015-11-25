@@ -1,12 +1,8 @@
 #include "PrimeChecker.hpp"
 #include <iostream>
 #include <stdexcept>
-//#include <chrono>
-//#include <ratio>
 
 using namespace Camax;
-using namespace std;
-//using namespace std::chrono;
 
 void PrimeChecker::printCalculationTime(system_clock::time_point start, system_clock::time_point end)
 {
@@ -42,20 +38,12 @@ bool PrimeChecker::IsPrime(int n)
 	{
 	  system_clock::time_point end = system_clock::now();
 	  printCalculationTime(start, end);
-	  // microseconds diff = end - start;
-	  // if(_verboseMode == VerboseOn)
-	  //   cout << "\n\tDuration: " << diff.count() << " us.";
-	  
 	  return false;
 	}
     }
 
   system_clock::time_point end = system_clock::now();
   printCalculationTime(start, end);
-  // microseconds diff = end - start;
-  // if(_verboseMode == VerboseOn)
-  //   cout << "\n\tDuration: " << diff.count() << " us.";
-	  
   return true;
 }
 
