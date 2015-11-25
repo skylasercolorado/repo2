@@ -3,8 +3,11 @@
 
 #include <vector>
 #include <string>
+#include <chrono>
+#include <ratio>
 
 using namespace std;
+using namespace std::chrono;
 
 namespace Camax
 {
@@ -30,6 +33,7 @@ namespace Camax
     VerboseMode _verboseMode;
     RunMode _runMode;
     void calculationMessage(int n, int i, string message);
+    void printCalculationTime(system_clock::time_point start, system_clock::time_point end);
   };
 }
 
