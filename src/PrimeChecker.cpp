@@ -33,21 +33,6 @@ void PrimeChecker::validateParameter(int n)
 
 bool PrimeChecker::IsPrime(int n)
 {
-  // if(_runMode == ProductionMode)
-  //   {
-  //     if(n < 1)
-  // 	throw invalid_argument("Negative numbers cannot be processed");
-  //   }
-  // else
-  //   {
-  //     if(n < 1 && n >= -99)
-  // 	throw invalid_argument("Negative numbers cannot be processed");
-  //     else if(n <= -100 && n >= -199)
-  // 	throw runtime_error("run time error exception");
-  //     else if(n <= -200)
-  // 	throw "5";
-  //   }
-
   validateParameter(n);
 
   system_clock::time_point start = system_clock::now();
