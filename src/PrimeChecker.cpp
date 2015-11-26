@@ -45,7 +45,14 @@ bool PrimeChecker::IsPrime(long n)
 	  system_clock::time_point end = system_clock::now();
 
 	  if(_verboseMode == VerboseOn)
-	    printCalculationTimeAndFirstFactor(start, end, i);
+	    {
+	      printCalculationTimeAndFirstFactor(start, end, i);
+	      for(long i = 2; i < n; i++)
+		{
+		  if((n % i) == 0) // For exact division there is no remainder. Then, this is a factor.
+		    calculationMessage(n, i, " IS A FACTOR !!! :)");
+		}
+	    }
 	  
 	  return false;
 	}
