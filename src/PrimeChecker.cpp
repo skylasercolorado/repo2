@@ -10,7 +10,7 @@ void PrimeChecker::printCalculationTime(system_clock::time_point start, system_c
   cout << "\n\tDuration: " << diff.count() << " us.";
 }
 
-void PrimeChecker::validateParameter(int n)
+void PrimeChecker::validateParameter(long long n)
 {
   if(_runMode == ProductionMode)
     {
@@ -28,7 +28,7 @@ void PrimeChecker::validateParameter(int n)
     }
 }
 
-bool PrimeChecker::IsPrime(int n)
+bool PrimeChecker::IsPrime(long long n)
 {
   validateParameter(n);
 
@@ -113,7 +113,7 @@ bool PrimeChecker::IsPrime(int n)
 // }
 
 
-void PrimeChecker::calculationMessage(int n, int i, string message)
+void PrimeChecker::calculationMessage(long long n, int i, string message)
 {
   cout << "\n\t" << n << " / " << i << " = " << n/i << ". Residue: " << n%i << " ---> Number " << i << message;
 }

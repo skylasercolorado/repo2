@@ -27,14 +27,14 @@ namespace Camax
   {
   public:
     PrimeChecker(VerboseMode verboseMode = VerboseOn, RunMode runMode = ProductionMode) : _verboseMode(verboseMode), _runMode(runMode) {}
-    bool IsPrime(int n);
+    bool IsPrime(long long n);
     
   private:
     VerboseMode _verboseMode;
     RunMode _runMode;
-    void calculationMessage(int n, int i, string message);
+    void calculationMessage(long long n, int i, string message);
     void printCalculationTime(system_clock::time_point start, system_clock::time_point end);
-    void validateParameter(int n);
+    void validateParameter(long long n);
   };
 }
 
