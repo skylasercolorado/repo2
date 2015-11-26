@@ -4,10 +4,11 @@
 
 using namespace Camax;
 
-void PrimeChecker::printCalculationTime(system_clock::time_point start, system_clock::time_point end)
+void PrimeChecker::printCalculationTimeAndFirstFactor(system_clock::time_point start, system_clock::time_point end, long n)
 {
   microseconds diff = duration_cast<microseconds>(end - start);
   cout << "\n\tDuration: " << diff.count() << " us.";
+  cout << "\n\tn: " << n;
 }
 
 void PrimeChecker::validateParameter(long n)
@@ -37,14 +38,14 @@ bool PrimeChecker::IsPrime(long n)
 
   system_clock::time_point start = system_clock::now();
   
-  for(int i = 2; i < n; i++)
+  for(long i = 2; i < n; i++)
     {
       if((n % i) == 0) // For exact division there is no remainder. Then, this is a factor and n is composite.
 	{
 	  system_clock::time_point end = system_clock::now();
 
 	  if(_verboseMode == VerboseOn)
-	    printCalculationTime(start, end);
+	    printCalculationTimeAndFirstFactor(start, end, i);
 	  
 	  return false;
 	}
@@ -53,7 +54,7 @@ bool PrimeChecker::IsPrime(long n)
   system_clock::time_point end = system_clock::now();
 
   if(_verboseMode == VerboseOn)
-    printCalculationTime(start, end);
+    printCalculationTimeAndFirstFactor(start, end, -1);
   
   return true;
 }

@@ -33,7 +33,7 @@ namespace Camax
     VerboseMode _verboseMode;
     RunMode _runMode;
     void calculationMessage(long n, int i, string message);
-    void printCalculationTime(system_clock::time_point start, system_clock::time_point end);
+    void printCalculationTimeAndFirstFactor(system_clock::time_point start, system_clock::time_point end, long n);
     void validateParameter(long n);
   };
 }
