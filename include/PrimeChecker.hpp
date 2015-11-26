@@ -34,6 +34,7 @@ namespace Camax
     RunMode _runMode;
     void calculationMessage(int n, int i, string message);
     void printCalculationTime(system_clock::time_point start, system_clock::time_point end);
+    void validateParameter(int n);
   };
 }
 
