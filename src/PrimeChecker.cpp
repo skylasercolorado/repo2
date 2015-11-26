@@ -6,7 +6,7 @@ using namespace Camax;
 
 void PrimeChecker::printCalculationTime(system_clock::time_point start, system_clock::time_point end)
 {
-  microseconds diff = end - start;
+  microseconds diff = duration_cast<milliseconds>(end - start);
   cout << "\n\tDuration: " << diff.count() << " us.";
 }
 
