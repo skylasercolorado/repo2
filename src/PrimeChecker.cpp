@@ -26,7 +26,8 @@ void PrimeChecker::validateParameter(long n)
       else if(n <= -200)
 	throw "5";
 
-      cout << "\n\tsizeof(n): " << sizeof(n); 
+      cout << "\n\tsizeof(n): " << sizeof(n);
+      cout << "\n\tsizeof(int): " << sizeof(int); 
     }
 }
 
@@ -38,9 +39,10 @@ bool PrimeChecker::IsPrime(long n)
   
   for(int i = 2; i < n; i++)
     {
-      if((n % i) == 0) // For exact division there is no remainder. Then, this is a factor.
+      if((n % i) == 0) // For exact division there is no remainder. Then, this is a factor and n is composite.
 	{
 	  system_clock::time_point end = system_clock::now();
+
 	  if(_verboseMode == VerboseOn)
 	    printCalculationTime(start, end);
 	  
@@ -49,6 +51,7 @@ bool PrimeChecker::IsPrime(long n)
     }
 
   system_clock::time_point end = system_clock::now();
+
   if(_verboseMode == VerboseOn)
     printCalculationTime(start, end);
   
