@@ -47,11 +47,12 @@ bool PrimeChecker::IsPrime(long n)
 	  if(_verboseMode == VerboseOn)
 	    {
 	      printCalculationTimeAndFirstFactor(start, end, i);
-	      for(long i = 2; i < n; i++)
-		{
-		  if((n % i) == 0) // For exact division there is no remainder. Then, this is a factor.
-		    calculationMessage(n, i, " IS A FACTOR !!! :)");
-		}
+	      if(_factorsMode == FactorsMode)
+		for(long i = 2; i < n; i++)
+		  {
+		    if((n % i) == 0) // For exact division there is no remainder. Then, this is a factor.
+		      calculationMessage(n, i, " IS A FACTOR !!! :)");
+		  }
 	    }
 	  
 	  return false;

@@ -10,6 +10,7 @@ struct PrimeCheckerParams
 {
   VerboseMode verboseMode;
   RunMode runMode;
+  RunMode factorsMode;
 };
 
 static PrimeCheckerParams& parseCommandLineOptions(int argc, char **argv)
@@ -18,6 +19,7 @@ static PrimeCheckerParams& parseCommandLineOptions(int argc, char **argv)
 
   params.verboseMode = VerboseOn;
   params.runMode = ProductionMode;
+  params.factorsMode = ProductionMode;
 
   static struct option longOptions[] =
     {
@@ -25,6 +27,7 @@ static PrimeCheckerParams& parseCommandLineOptions(int argc, char **argv)
       {"verbose", no_argument, (int*) &params.verboseMode, VerboseOn},
       {"debug", no_argument, (int*) &params.runMode, DebugMode},
       {"production", no_argument, (int*) &params.runMode, ProductionMode},
+      {"factors", no_argument, (int*) &params.factorsMode, FactorsMode},
       {"help", no_argument, 0, 'h'},
       {0, 0, 0, 0}
     };
@@ -45,6 +48,7 @@ static PrimeCheckerParams& parseCommandLineOptions(int argc, char **argv)
 	  cout << "--verbose \t   \t Verbose messages.\n";
 	  cout << "--debug \t   \t Run in debug mode.\n";
 	  cout << "--production \t   \t Run in production mode.\n";
+	  cout << "--factors \t   \t Print all factors.\n";
 	  cout << "--help \t -h \t Display this help message.\n\n";
 	  exit(0);
 
@@ -66,7 +70,7 @@ static void doWork(int argc, char **argv)
 {
   PrimeCheckerParams& params = parseCommandLineOptions(argc, argv);
   
-  PrimeChecker primeChecker(params.verboseMode, params.runMode);
+  PrimeChecker primeChecker(params.verboseMode, params.runMode, params.factorsMode);
   long n;
 
   while(1)

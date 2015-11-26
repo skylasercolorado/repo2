@@ -20,18 +20,21 @@ namespace Camax
   enum RunMode : int
     {
       DebugMode,
-      ProductionMode
+      ProductionMode,
+      FactorsMode
     };
   
   class PrimeChecker
   {
   public:
-    PrimeChecker(VerboseMode verboseMode = VerboseOn, RunMode runMode = ProductionMode) : _verboseMode(verboseMode), _runMode(runMode) {}
+    PrimeChecker(VerboseMode verboseMode = VerboseOn, RunMode runMode = ProductionMode, RunMode factorsMode = ProductionMode) :
+      _verboseMode(verboseMode), _runMode(runMode), _factorsMode(factorsMode) {}
     bool IsPrime(long n);
     
   private:
     VerboseMode _verboseMode;
     RunMode _runMode;
+    RunMode _factorsMode;
     void calculationMessage(long n, int i, string message);
     void printCalculationTimeAndFirstFactor(system_clock::time_point start, system_clock::time_point end, long n);
     void validateParameter(long n);
