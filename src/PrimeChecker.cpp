@@ -6,11 +6,8 @@ using namespace Camax;
 
 void PrimeChecker::printCalculationTime(system_clock::time_point start, system_clock::time_point end)
 {
-  if(_verboseMode == VerboseOn)
-    {
-      microseconds diff = end - start;
-      cout << "\n\tDuration: " << diff.count() << " us.";
-    }
+  microseconds diff = end - start;
+  cout << "\n\tDuration: " << diff.count() << " us.";
 }
 
 void PrimeChecker::validateParameter(int n)
@@ -42,13 +39,17 @@ bool PrimeChecker::IsPrime(int n)
       if((n % i) == 0) // For exact division there is no remainder. Then, this is a factor.
 	{
 	  system_clock::time_point end = system_clock::now();
-	  printCalculationTime(start, end);
+	  if(_verboseMode == VerboseOn)
+	    printCalculationTime(start, end);
+	  
 	  return false;
 	}
     }
 
   system_clock::time_point end = system_clock::now();
-  printCalculationTime(start, end);
+  if(_verboseMode == VerboseOn)
+    printCalculationTime(start, end);
+  
   return true;
 }
 
