@@ -10,14 +10,14 @@ void PrimeChecker::printCalculationTime(system_clock::time_point start, system_c
   cout << "\n\tDuration: " << diff.count() << " us.";
 }
 
-void PrimeChecker::validateParameter(long long n)
+void PrimeChecker::validateParameter(long n)
 {
   if(_runMode == ProductionMode)
     {
       if(n < 1)
 	throw invalid_argument("Negative numbers cannot be processed");
     }
-  else
+  else if(_runMode == DebugMode)
     {
       if(n < 1 && n >= -99)
 	throw invalid_argument("Negative numbers cannot be processed");
@@ -25,10 +25,12 @@ void PrimeChecker::validateParameter(long long n)
 	throw runtime_error("run time error exception");
       else if(n <= -200)
 	throw "5";
+
+      cout << "\n\tsizeof(n): " << sizeof(n); 
     }
 }
 
-bool PrimeChecker::IsPrime(long long n)
+bool PrimeChecker::IsPrime(long n)
 {
   validateParameter(n);
 
@@ -113,7 +115,7 @@ bool PrimeChecker::IsPrime(long long n)
 // }
 
 
-void PrimeChecker::calculationMessage(long long n, int i, string message)
+void PrimeChecker::calculationMessage(long n, int i, string message)
 {
   cout << "\n\t" << n << " / " << i << " = " << n/i << ". Residue: " << n%i << " ---> Number " << i << message;
 }

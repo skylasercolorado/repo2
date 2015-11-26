@@ -67,7 +67,7 @@ static void doWork(int argc, char **argv)
   PrimeCheckerParams& params = parseCommandLineOptions(argc, argv);
   
   PrimeChecker primeChecker(params.verboseMode, params.runMode);
-  long long n;
+  long n;
 
   while(1)
     {
