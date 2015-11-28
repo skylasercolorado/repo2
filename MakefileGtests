@@ -25,7 +25,7 @@ endif
 
 AR          = ar
 CFLAGS     	= -Wall -g -O0 -pedantic -ansi -std=c++0x -MD -DTESTING
-LFLAGS_TEST 	= -L$(LIBDIR) -lgtest -lgtest_main -lpthread -llightscheduler
+LFLAGS_TEST 	= -L$(LIBDIR) -lgtest -lgtest_main -lpthread -llightscheduler -lgmpxx -lgmp
 ####################################################
 
 SOURCES    	:= $(shell find $(SRCDIR) -type f -name "*.$(SRCEXT)")

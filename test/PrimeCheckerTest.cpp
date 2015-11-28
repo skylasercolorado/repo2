@@ -2,6 +2,8 @@
 #include "gmock/gmock.h"
 
 #include "PrimeChecker.hpp"
+#include <gmp.h>
+#include <gmpxx.h>
 
 using namespace Camax;
 using namespace std;
@@ -60,4 +62,23 @@ TEST_F(PrimeCheckerTest, ExpectedPrimeNumberNegativeTest)
   PrimeChecker primeChecker(VerboseOn);
 
   EXPECT_THROW(primeChecker.IsPrime(-1L), invalid_argument);
+}
+
+TEST(BigNumTest, SimpleIntegerTest)
+{
+  mpz_t integ;
+
+  mpz_init (integ);
+
+  mpz_set_str(integ, "123435467898707886453543245645768768", 10);
+
+  mpz_class i, j, k;
+
+  i = 20;
+  j = 30;
+  k = i + j;
+  
+  cout << "\n\tk: " << k;
+  cout << "\n\tk % 40: " << k % 40;
+  cout << "\n\r string version: " << k.get_mpz_t();
 }
